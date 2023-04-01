@@ -1,17 +1,18 @@
-// Method to get the start and end index of words to boldify in a string
-const indexWord = (word) => {
+// Method to get the end index of words (non-inclusive) to boldify in a string
+const getBionicLowFixationIndex = (word) => {
     // Create variable for length of word
     const len = word.length;
     // If the length is greater than 5
     if (len > 5) {
         // Use the third of the length
-        return Math.floor(len / 3);
+        return Math.floor(len / 3)+1;
     } else if (len > 1) { // If the length is greater than 1
         // Return index of first two letters
-        return 1;
+        return 2;
     } else { // If there is one letter
         // Return the letter bolded
-        return 0;
+        return 1;
     }
 };
 
+export { getBionicLowFixationIndex as getBionicLowFixationIndex };
