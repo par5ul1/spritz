@@ -1,0 +1,30 @@
+#reader-container {
+  position: absolute;
+  flex-direction: column;
+  gap: 5vmin;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#reader-container > span {
+  font-size: 15vmin;
+}
+
+#reader-container > .dismiss-btn {
+  position: absolute;
+  top: 5vmin;
+  right: 5vmin;
+  width: 5vmin;
+  height: 5vmin;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 0;
+  background: none;
+  font-size: x-large;
+}

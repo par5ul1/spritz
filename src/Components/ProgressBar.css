@@ -1,0 +1,11 @@
+.progress-bar {
+  width: 60vw;
+  height: 0.5vw;
+  background-color: lightgray;
+  border-radius: 50px;
+}
+
+.progress-bar:focus {
+  outline: none;
+}
+
