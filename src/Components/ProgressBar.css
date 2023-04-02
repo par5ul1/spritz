@@ -1,11 +1,23 @@
 .progress-bar {
   width: 60vw;
-  height: 0.5vw;
-  background-color: lightgray;
+  background: var(--secondary);
+  outline: none;
+  appearance: none;
   border-radius: 50px;
 }
 
-.progress-bar:focus {
-  outline: none;
+.progress-bar::-webkit-slider-runnable-track {
+  border-radius: 50px;
+  appearance: none;
+  height: 1vmin;
+  cursor: pointer;
 }
 
+.progress-bar::-webkit-slider-thumb {
+  height: 100%;
+  width: 30px;
+  border-radius: 50px;
+  background-color: var(--foreground);
+  appearance: none;
+  cursor: pointer;
+}

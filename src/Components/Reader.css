@@ -9,10 +9,23 @@
   align-items: center;
 }
 
-#reader-container > .dismiss-btn {
-  position: absolute;
-  top: 5vmin;
-  right: 5vmin;
+#reader-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 90vw;
+  margin-top: 5vw;
+}
+
+#reader-header > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#reader-header .dismiss-btn {
   width: 5vmin;
   height: 5vmin;
   display: inline-flex;
@@ -25,14 +38,23 @@
   font-size: x-large;
 }
 
-#reader-container > .options {
-  position: absolute;
+#reader-header .options {
   display: flex;
   flex-direction: column;
-  top: 5vmin;
-  left: 5vmin;
   border: 0;
   background: none;
+  text-align: right;
+}
+
+#dyslexia-checkbox-label {
+  font-family: "Open Dyslexic";
+}
+
+#reader-words {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 70%;
 }
 
 #reader-words > .bionic {
@@ -41,6 +63,27 @@
 }
 
 #reader-words > .bionic-dyslexic {
-  font-family: 'Open Dyslexic';
+  font-family: "Open Dyslexic";
 }
 
+#reader-controls {
+  display: flex;
+  flex-direction: column;
+  padding: 5vmin;
+  gap: 2.5vmin;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.playPause-btn {
+  background: none;
+  border: none;
+  color: var(--foreground);
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.playPause-btn:focus {
+  outline: none;
+}

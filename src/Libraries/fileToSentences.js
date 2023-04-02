@@ -19,7 +19,6 @@ function fileToSentences(file) {
                 resolve(sentences);
             } else {
                 // Use the file data for further processing
-                console.log(fileData);
                 const sentences = toSentences(fileData);
                 resolve(sentences);
             }
@@ -49,8 +48,8 @@ function decodePdfString(file) {
                 pdf.getPage(1).then((page) => {
                     page.getTextContent().then((textContent) => {
                         // Extract the text content from the text items
-                        text = textContent.items.map((item) => item.str).join('');
-                        resolve(text);
+                        let chunks = textContent.items.map(x => x.str).filter(x => x.length != 0).join(" ");
+                        resolve(chunks);
                     });
                 });
             }).catch((error) => {
@@ -64,9 +63,11 @@ function decodePdfString(file) {
     });
 }
 
-
+// Cleans the string, splits it, and trims the sentences
 function toSentences(text) {
-    return text.match(/[^\.!\?]+[\.!\?]+/g);
+    return text
+    .replace(/\n/g, " ")
+    .split(/(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?|\!\:)\s+|\p{Cc}+|\p{Cf}+/g);
 }
 
 export { fileToSentences as fileToSentences }

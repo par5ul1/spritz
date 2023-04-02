@@ -1,53 +1,71 @@
-import { fileToSentences } from "../Libraries/pdfToSentences";
+import "./DragDrop.css";
 
-const DragDrop = () => {
-    // Get a reference to the drag and drop box element
-    let hovering = false;
+import { fileToSentences } from "../Libraries/fileToSentences";
 
-    // Attach event listeners for the "dragover" and "drop" events
-    function handleDragOver(event) {
-      event.preventDefault();
-      hovering = true;
-    };
+const DragDrop = ({ onFileProcessed }) => {
+  // Attach event listeners for the "dragover" and "drop" events
+  const handleDragOver = (event) => {
+    event.preventDefault();
 
-    function handleDragLeave(event) {
-      event.preventDefault();
-      hovering = false;
-    };
+    event.target.classList.add("drop-box-drag-hover");
+  };
 
-    // Attach an event listener for the "drop" event
-    function handleDrop(event) {
-        // Prevent the default behavior of the "drop" event
-        event.preventDefault();
+  const handleDragLeave = (event) => {
+    event.preventDefault();
 
-        // Get the files that were dropped into the drag and drop box
-        const files = event.dataTransfer.files;
+    event.target.classList.remove("drop-box-drag-hover");
+  };
 
-        fileToSentences(files[0]).then((sentences) => {
-            return sentences;
-        }).catch((error) => {
-            console.error('Error processing file:', error);
-        });
-    };
+  // Attach an event listener for the "drop" event
+  const handleDrop = (event) => {
+    // Prevent the default behavior of the "drop" event
+    event.preventDefault();
 
-    const dropBox = {
-        width: '300px',
-        height: '200px',
-        border: '2px dashed black',
-        padding: '10px',
-        textAlign: 'center',
-        fontSize: '24px',
-        backgroundColor: hovering ? "lightgray" : ""
-    }
+    event.target.classList.remove("drop-box-drag-hover");
 
-    return (<>
-        <div style={dropBox}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}>
-        Drop Files here
-        </div>
-        </>)
-}
+    // Get the files that were dropped into the drag and drop box
+    const file = event.dataTransfer.files[0];
 
-export default DragDrop
+    handleFileProcessing(file);
+  };
+
+  const handleClick = (event) => {
+    document.getElementById("file-upload-input").click();
+  };
+
+  const handleFileProcessing = (file) => {
+    fileToSentences(file)
+      .then((sentences) => {
+        onFileProcessed(sentences);
+      })
+      .catch((error) => {
+        console.error("Error processing file:", error);
+      });
+  };
+
+  return (
+    <div
+      className='drop-box'
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+      onClick={handleClick}
+    >
+      <input
+        type='file'
+        id='file-upload-input'
+        style={{ display: "none" }}
+        onChange={(event) => {
+          handleFileProcessing(event.target.files[0]);
+          event.target.value = "";
+        }}
+      />
+      <p>
+        <b>Choose a file</b>{" "}
+        <em>or drag it here to read it at blazing fast speeds.</em>
+      </p>
+    </div>
+  );
+};
+
+export default DragDrop;

@@ -1,0 +1,68 @@
+.drop-box {
+  width: 50vw;
+  height: 35vw;
+  /* background: var(--secondary); */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 5vw;
+  border: 2px dashed var(--foreground);
+}
+
+.drop-box:active {
+  box-shadow: none;
+}
+
+.drop-box p {
+  transition: 0.3s ease-in-out;
+}
+
+.drop-box-drag-hover {
+  box-shadow: none;
+}
+
+.drop-box p::before {
+  transition: 0.3s ease-in-out;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f1c1";
+  color: var(--foreground) !important;
+  position: absolute;
+  right: 51.5%;
+  opacity: 0;
+}
+
+.drop-box p::after {
+  transition: 0.3s ease-in-out;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f15c";
+  color: var(--foreground) !important;
+  position: absolute;
+  left: 51.5%;
+  opacity: 0;
+}
+
+.drop-box-drag-hover p::before,
+.drop-box-drag-hover p::after {
+  opacity: 0.5;
+}
+
+.drop-box-drag-hover p::before {
+  transform: scale(300%) rotate(-15deg);
+}
+
+.drop-box-drag-hover p::after {
+  transform: scale(300%) rotate(40deg);
+}
+
+.drop-box-drag-hover p {
+  color: transparent;
+  pointer-events: none;
+}

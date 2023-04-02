@@ -1,17 +1,32 @@
+import { useEffect, useState } from "react";
+
+import DragDrop from "./Components/DragDrop";
 import Reader from "./Components/Reader";
-import { useState } from "react";
 
 function App() {
-  const [readerOpen, setReader] = useState(true);
+  const [readerOpen, setReaderOpen] = useState(false);
+  const [textArray, setTextArray] = useState([]);
 
   const dismissReader = () => {
-    setReader(false);
+    setReaderOpen(false);
   };
-  // TODO: Needs refactoring
-  const text =
-    "Snowman wakes before dawn. He lies unmoving, listening to the tide coming in, wave after wave sloshing over the various barricades, wish-wash, wish-wash, the rhythm of heartbeats. He would so like to believe he is still asleep.";
 
-  return <>{readerOpen && <Reader text={text} onDismiss={dismissReader} />}</>;
+  return (
+    <>
+      <h1 id='logo'>
+        <span>Sp</span>
+        <span>rit</span>
+        <span>🍹</span>
+      </h1>
+      <DragDrop
+        onFileProcessed={(sentences) => {
+          setTextArray(sentences);
+          setReaderOpen(true);
+        }}
+      />
+      {readerOpen && <Reader textArray={textArray} onDismiss={dismissReader} />}
+    </>
+  );
 }
 
 export default App;
