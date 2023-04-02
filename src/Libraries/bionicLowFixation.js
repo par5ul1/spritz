@@ -5,6 +5,12 @@ const getBionicLowFixationIndex = (word) => {
 
     // Get all of the matching non-punctuation characters
     const matches = word.match(regex);
+
+    // If empty, just ignore
+    if (!matches) {
+      return [0, 0];
+    }
+    
     // If there is only one match and it is only one character
     if (matches.length == 1 && matches[0].length == 1) {
         // Get the index of the match

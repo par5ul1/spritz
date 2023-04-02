@@ -9,10 +9,6 @@
   align-items: center;
 }
 
-#reader-container > span {
-  font-size: 15vmin;
-}
-
 #reader-container > .dismiss-btn {
   position: absolute;
   top: 5vmin;
@@ -28,3 +24,23 @@
   background: none;
   font-size: x-large;
 }
+
+#reader-container > .options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 5vmin;
+  left: 5vmin;
+  border: 0;
+  background: none;
+}
+
+#reader-words > .bionic {
+  font-size: 5vmin;
+  text-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#reader-words > .bionic-dyslexic {
+  font-family: 'Open Dyslexic';
+}
+

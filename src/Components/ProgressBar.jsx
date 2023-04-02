@@ -1,7 +1,7 @@
 import "./ProgressBar.css";
 
 const ProgressBar = ({ current, total, onDrag }) => {
-  const progress = total ? (current / total) * 100 : 100;
+  const progress = total ? ((current ? current : 0) / total) * 100 : 100;
 
   return (
     <input

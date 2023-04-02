@@ -5,7 +5,7 @@ const BionicWord = ({ children }) => {
 
   return (
     <>
-      <span>
+      <span className='bionic'>
         {children.slice(0, startIndex)}
         <b>{children.slice(startIndex, endIndex)}</b>
         {children.slice(endIndex, children.length)}
