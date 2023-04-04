@@ -1,5 +1,7 @@
 # Spritz🍹 - Your Speedreading Companion
 
+[![](public/screenshot.png)](https://spritz.parsuli.net)
+
 You can try out Spritz at this [link](https://spritz.parsuli.net).
 
 ## What is it?
