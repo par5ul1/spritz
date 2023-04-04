@@ -12,5 +12,15 @@ export default defineConfig({
       promiseImportName: (i) => `__tla_${i}`
     }),
     react()
-  ]
+  ],
+  server: {
+    host: true,
+    strictPort: true,
+    port: 8080
+  },
+  preview: {
+    host: true,
+    strictPort: true,
+    port: 8080
+  }
 });

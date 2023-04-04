@@ -21,6 +21,7 @@ function App() {
       <DragDrop
         onFileProcessed={(sentences) => {
           setTextArray(sentences);
+          console.log(sentences);
           setReaderOpen(true);
         }}
       />
