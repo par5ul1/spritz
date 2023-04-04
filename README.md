@@ -1,6 +1,4 @@
-# Spritz - Your Speedreading Companion
-
-<h2><span style="font-weight: 900; background: #ffa07a; padding: 2pt; border-radius: 5px;">Sp</span>ritz🍹</h2>
+# Spritz🍹 - Your Speedreading Companion
 
 You can try out Spritz at this [link](https://spritz.parsuli.net).
 
@@ -17,8 +15,8 @@ This was our hackathon submission to *[The Dons Hack 2023](https://usf-wit.githu
 We made Spritz because reading boring things is boring, and sometimes we have to read boring things. We don't like boring things, so we made Spritz to make a boring thing less boring.
 
 ## Who made this?
-* @JacksonCrawford
-* @par5ul1 (also the author of this README)
+* [@JacksonCrawford](https://github.com/JacksonCrawford)
+* [@par5ul1](https://github.com/par5ul1) (also the author of this README)
 
 ## License?
 MIT...?
