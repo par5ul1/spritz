@@ -21,6 +21,6 @@ We made Spritz because reading boring things is boring, and sometimes we have to
 * [@par5ul1](https://github.com/par5ul1) (also the author of this README)
 
 ## License?
-MIT...?
+GPL-3.0...?
 
 Literally do whatever you want with the source code — just don't sell it. Spritz is free. It's an educational project. It doesn't have to be a product.
