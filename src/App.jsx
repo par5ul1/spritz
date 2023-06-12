@@ -25,6 +25,12 @@ function App() {
           setReaderOpen(true);
         }}
       />
+      <a
+        style={{ position: "absolute", bottom: "40px", color: "white" }}
+        href='https://github.com/par5ul1/spritz'
+      >
+        Source Code
+      </a>
       {readerOpen && <Reader textArray={textArray} onDismiss={dismissReader} />}
     </>
   );
